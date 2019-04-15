@@ -14,10 +14,10 @@ void UI::printMenu()
 void UI::printAdminMenu()
 {
 	cout << "Possible commands: " << endl;
-	cout << "\t 1 - Add movie." << endl;
+	cout << "\t 1 - Add pet." << endl;
 	cout << "\t 2 - Display all." << endl;
-	cout << "\t 3 - Delete Pet." << endl;
-	cout << "\t 4 - Update Pet." << endl;
+	cout << "\t 3 - Delete pet." << endl;
+	cout << "\t 4 - Update pet." << endl;
 	cout << "\t 0 - Back." << endl;
 }
 
@@ -31,7 +31,7 @@ void UI::printAdminMenu()
 //	cout << "\t 0 - Back." << endl;
 //}
 
-void UI::addPetToRepo()
+void UI::addPet()
 {
 	cout << "Enter the name: ";
 	std::string name;
@@ -39,22 +39,45 @@ void UI::addPetToRepo()
 	cout << "Enter the breed: ";
 	std::string breed;
 	getline(cin, breed);
-	int vaccines = 0;
-	std::string birth_date = 0;
+	std::string birth_date;
 	cout << "Enter the birth_date: " << endl;
 	cin >> birth_date;
-	cin.ignore();
+	//cin.ignore();
+	int vaccines = 0;
 	cout << "Enter the vaccines: ";
 	cin >> vaccines;
 	cin.ignore();
-	cout << "Youtube link: ";
+	cout << "Photo link: ";
 	std::string photo;
 	getline(cin, photo);
 
 	this->ctrl.addPetCtrl(name, breed, birth_date, vaccines, photo);
 }
 
-void UI::displayAllPetsRepo()
+void UI::removePet()
+{
+	cout << "Enter the name: ";
+	std::string name;
+	getline(cin, name);
+	cout << "Enter the breed: ";
+	std::string breed;
+	getline(cin, breed);
+	std::string birth_date;
+	cout << "Enter the birth_date: " << endl;
+	cin >> birth_date;
+	//cin.ignore();
+	int vaccines = 0;
+	cout << "Enter the vaccines: ";
+	cin >> vaccines;
+	cin.ignore();
+	cout << "Photo link: ";
+	std::string photo;
+	getline(cin, photo);
+
+	this->ctrl.removePet(name, breed, birth_date, vaccines, photo);
+}
+
+void UI::displayAllPets()
 {
 	DynamicVector v = this->ctrl.getRepo().getPets();
 	Pet* movies = v.getAllElems();
@@ -69,7 +92,7 @@ void UI::displayAllPetsRepo()
 	for (int i = 0; i < v.getSize(); i++)
 	{
 		Pet p = movies[i];
-		cout << p.getName() << ":\n\t" << p.getBreed() << "\n\t" << p.getBirthDate() << "\n\Vaccines: " << p.getVaccines() << endl << endl;
+		cout << p.getName() << ":\n\t" << p.getBreed() << "\n\t" << p.getBirthDate() << "\nVaccines: " << p.getVaccines() << endl << endl;
 	}
 }
 
@@ -99,11 +122,13 @@ void UI::run()
 				switch (commandRepo)
 				{
 				case 1:
-					this->addPetToRepo();
+					this->addPet();
 					break;
 				case 2:
-					this->displayAllPetsRepo();
+					this->displayAllPets();
+					break;
 				case 3:
+					this->removePet();
 					break;
 				}
 			}

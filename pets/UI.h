@@ -15,8 +15,8 @@ private:
 	static void printMenu();
 	static void printAdminMenu();
 
-	void addPetToRepo();
-	void displayAllPetsRepo();
-	//void addSongToPlaylist();
-	//void addAllSongsByArtistToPlaylist();
+	void addPet();
+	void removePet();
+	void displayAllPets();
+
 };

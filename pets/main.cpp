@@ -11,9 +11,9 @@ int main()
 {
 	Repo repo{};
 
-	Pet p1( "Finding Nemo", "Animation", "1-2-2010", 12, "https://www.youtube.com/watch?v=wZdpNglLbt8" );
-	Pet p2( "Shutter Island", "Thriller", "1-2-2010", 56, "https://www.youtube.com/watch?v=5iaYLCiq5RM" );
-	Pet p3( "Monsters Inc.", "Animation", "1-2-2010", 3, "https://www.youtube.com/watch?v=cvOQeozL4S0" );
+	Pet p1( "Flora", "German Shepphard", "1-2-2006", 5, "https://www.youtube.com/watch?v=wZdpNglLbt8" );
+	Pet p2( "Uzi", "European", "5-8-2018", 10, "https://www.youtube.com/watch?v=5iaYLCiq5RM" );
+	Pet p3( "Hera", "Dachshund", "5-3-2017", 15, "https://www.youtube.com/watch?v=cvOQeozL4S0" );
 	repo.addPet(p1);
 	repo.addPet(p2);
 	repo.addPet(p3);
